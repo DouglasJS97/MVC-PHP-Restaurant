@@ -1,13 +1,16 @@
 <?php
 
-class ControladorUsuarios {
+namespace App\Controller;
 
+use App\Model\ModeloUsuarios;
+
+class UserController
+{
     //objeto modelo
     private $modeloUsuarios;
 
     //contrutor
     public function __construct(){
-        include_once BASE_PATH . 'modelo/modeloUsuarios.php';
         $this->modeloUsuarios = new ModeloUsuarios();
     }
 
@@ -36,7 +39,7 @@ class ControladorUsuarios {
         }else{
             exit($usuario);
         }
-       
+
     }
 
     public function editar(){

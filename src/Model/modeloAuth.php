@@ -1,10 +1,13 @@
 <?php
 
-class ModeloAuth{
+namespace App\Model;
+
+class ModeloAuth
+{
 
     function login($email, $senha){
         //validar os inputs email e senha
-        
+
         //"criptografia" - hash da senha com salt (concatenando o e-mail)
         $emailEsenha = $email . $senha;
         $senhaHash = hash('sha256', $emailEsenha);

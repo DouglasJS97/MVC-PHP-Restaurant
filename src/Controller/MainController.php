@@ -1,15 +1,15 @@
 <?php
+namespace App\Controller;
 
-class ControladorPrincipal {
-
+class MainController
+{
     //objeto controladorAuth
     private $controladorAuth;
     private $logado = false;
 
     //construtor
     public function __construct(){
-        include_once BASE_PATH . 'controle/controladorAuth.php';
-        $this->controladorAuth = new ControladorAuth();
+        $this->controladorAuth = new AuthController();
         $this->logado = $this->controladorAuth->estaLogado();
     }
 
@@ -35,7 +35,7 @@ class ControladorPrincipal {
 
             //controlador = categorias
             include_once BASE_PATH . 'controle/controladorCategorias.php';
-            $controlador = new ControladorCategorias();
+            $controlador = new CategoriasController();
         } else if($rota == 'pratos'){
 
             //protege a rota de pratos para que apenas usuários logados possam acessar
@@ -43,7 +43,7 @@ class ControladorPrincipal {
 
             //controlador = pratos
             include_once BASE_PATH . 'controle/controladorPratos.php';
-            $controlador = new ControladorPratos();
+            $controlador = new PratosController();
         } else if($rota == 'usuarios'){
 
             //protege a rota de usuarios para que apenas usuários logados possam acessar
@@ -51,7 +51,7 @@ class ControladorPrincipal {
 
             //controlador = usuarios
             include_once BASE_PATH . 'controle/controladorUsuarios.php';
-            $controlador = new ControladorUsuarios();
+            $controlador = new UserController();
         }else{
            //chama a pagina de 404
            $this->notFound();

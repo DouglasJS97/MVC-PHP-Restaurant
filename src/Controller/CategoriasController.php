@@ -1,6 +1,7 @@
 <?php
 
-class ControladorCategorias {
+class CategoriasController
+{
 
     //objeto modelo
     private $modeloCategorias;
@@ -36,7 +37,7 @@ class ControladorCategorias {
         }else{
             exit($categoria);
         }
-       
+
     }
 
     public function editar(){

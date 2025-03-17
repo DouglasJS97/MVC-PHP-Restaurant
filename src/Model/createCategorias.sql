@@ -1,4 +1,4 @@
-create table public.categorias
+create table categoria
 (
 	id serial not null
 		constraint categorias_pk

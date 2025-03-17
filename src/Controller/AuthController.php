@@ -1,13 +1,17 @@
 <?php
 
-class ControladorAuth{
+namespace App\Controller;
+
+use App\Model\ModeloAuth;
+
+class AuthController
+{
 
     //objeto modelo
     private $modeloAuth;
 
     //contrutor
     public function __construct(){
-        include_once BASE_PATH . 'modelo/modeloAuth.php';
         $this->modeloAuth = new ModeloAuth();
         session_start();
     }

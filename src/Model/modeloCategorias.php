@@ -1,6 +1,9 @@
 <?php
 
-class ModeloCategorias{
+namespace App\Model;
+
+class ModeloCategorias
+{
 
     function listarTodos(){
         $query = "SELECT id, nome FROM categorias order by nome";
@@ -19,7 +22,7 @@ class ModeloCategorias{
          $query = "SELECT * FROM categorias WHERE id = $1";
          $result = pg_query_params($query, array($id))
                     or die("Não foi possível executar a query: " . pg_last_error());
- 
+
          if(pg_num_rows($result) > 0){
              return pg_fetch_assoc($result, 0);
          }else{
@@ -51,7 +54,7 @@ class ModeloCategorias{
             return "Não foi possível deletar a categoria.";
         }
         $query = "DELETE FROM categorias WHERE id = $1";
-        $result = pg_query_params($query, array($id)) 
+        $result = pg_query_params($query, array($id))
             or die("Não foi possível executar a query: " . pg_last_error());
 
         $deletou = false;

@@ -1,4 +1,4 @@
-create table public.usuarios
+create table user
 (
 	id serial not null
 		constraint usuarios_pkey

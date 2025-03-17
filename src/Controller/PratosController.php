@@ -1,13 +1,16 @@
 <?php
 
-class ControladorPratos {
+namespace App\Controller;
 
+use App\Model\ModeloPratos;
+
+class PratosController
+{
     //objeto modelo
     private $modeloPratos;
 
     //contrutor
     public function __construct(){
-        include_once BASE_PATH . 'modelo/modeloPratos.php';
         $this->modeloPratos = new ModeloPratos();
     }
 
@@ -41,7 +44,7 @@ class ControladorPratos {
         }else{
             exit($prato);
         }
-       
+
     }
 
     public function editar(){

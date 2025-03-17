@@ -1,14 +1,18 @@
 <?php
 //define o caminho dos arquivos do projeto
-define("BASE_PATH", $_SERVER['DOCUMENT_ROOT'] . "/mvc/");
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use App\Controller\MainController;
+use App\Model\BancoDeDados;
+
+define("BASE_PATH", $_SERVER['DOCUMENT_ROOT']);
 
 //inicia o banco de dados
-require_once BASE_PATH . "modelo/bancoDeDados.php";
-bancoDeDados::conectar();
+$bancoDeDados = new BancoDeDados();
 
 //inicia o controlador principal da aplicação
-require_once BASE_PATH . 'controle/controladorPrincipal.php';
-$controladorPrincipal = new ControladorPrincipal();
+$controladorPrincipal = new MainController();
 
 //tratar a rota
 $controladorPrincipal->trataRequisicao();
