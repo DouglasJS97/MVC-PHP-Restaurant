@@ -1,0 +1,6 @@
+CREATE TABLE prato (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	categoria_id INT NOT NULL,
+	FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
