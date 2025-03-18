@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\AuthModel;
-use App\Model\ModeloAuth;
 
 class AuthController
 {
@@ -16,7 +15,8 @@ class AuthController
         session_start();
     }
 
-    public function estaLogado(){
+    public function estaLogado()
+    {
         if(isset($_SESSION['email'])){
             return true;
         }else{
@@ -24,11 +24,12 @@ class AuthController
         }
     }
 
-    public function login(){
+    public function login()
+    {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             //se for POST, executa o login
             $logou = $this->modeloAuth->login($_POST['email'], $_POST['senha']);
-            if(is_array($logou)){
+            if(is_array($logou) && count($logou) > 0){
 
                 $_SESSION['nome'] = $logou['nome'];
                 $_SESSION['email'] = $logou['email'];
@@ -40,10 +41,12 @@ class AuthController
                 $mensagem = $logou;
             }
         }
-        include_once BASE_PATH . 'visao/auth/login.php';
+
+        include_once BASE_PATH . '/src/View/auth/login.php';
     }
 
-    public function logout(){
+    public function logout()
+    {
         //deleta a sessão
         session_destroy();
 

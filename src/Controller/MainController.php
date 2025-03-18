@@ -14,7 +14,6 @@ class MainController
     }
 
     public function trataRequisicao(){
-
         //tratando a rota (controlador)
         $rota = isset($_GET['rota']) ? $_GET['rota'] : null;
 
@@ -33,26 +32,20 @@ class MainController
             //protege a rota de categorias para que apenas usuários logados possam acessar
             $this->apenasLogado();
 
-            //controlador = categorias
-            include_once BASE_PATH . 'controle/controladorCategorias.php';
             $controlador = new CategoriasController();
         } else if($rota == 'pratos'){
 
             //protege a rota de pratos para que apenas usuários logados possam acessar
             $this->apenasLogado();
 
-            //controlador = pratos
-            include_once BASE_PATH . 'controle/controladorPratos.php';
             $controlador = new PratosController();
         } else if($rota == 'usuarios'){
 
             //protege a rota de usuarios para que apenas usuários logados possam acessar
-            $this->apenasLogado();
+            //$this->apenasLogado();
 
-            //controlador = usuarios
-            include_once BASE_PATH . 'controle/controladorUsuarios.php';
             $controlador = new UserController();
-        }else{
+        }else {
            //chama a pagina de 404
            $this->notFound();
            return;
@@ -95,11 +88,11 @@ class MainController
     }
 
     public function home(){
-        include_once BASE_PATH . 'visao/index.php';
+        include_once BASE_PATH . '/src/View/index.php';
     }
 
     public function notFound(){
         http_response_code(404);
-        include_once BASE_PATH . 'visao/pagina_nao_encontrada.html';
+        include_once BASE_PATH . '/src/View/pagina_nao_encontrada.html';
     }
 }

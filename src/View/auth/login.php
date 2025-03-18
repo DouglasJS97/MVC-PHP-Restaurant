@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login | Restaurante</title>
 </head>
 <body>
     Entrar no sistema do restaurante!
@@ -25,5 +25,8 @@
        <input type="submit" value="Entrar" />
     </form>
 
+    <div>
+        <p>Ainda não tem uma conta? <a href="index.php?rota=usuarios&op=novo">Cadastre-se</a></p>
+    </div>
 </body>
 </html>

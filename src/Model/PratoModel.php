@@ -6,14 +6,9 @@ use PDO;
 
 class PratoModel extends BancoDeDados
 {
-    public function __construct(private readonly ?PDO $conn = null)
-    {
-        $this->conn = $this->getConnection();
-    }
-
     function listarTodos(): array
     {
-        $sql = "SELECT id, nome FROM pratos order by nome";
+        $sql = "SELECT id, nome FROM prato order by nome";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $pratos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -23,8 +18,8 @@ class PratoModel extends BancoDeDados
 
     function buscar(int $id): array
     {
-        $sql = "SELECT p.id, p.nome, p.categoria_id, c.nome as categoria_nome FROM pratos p
-                    JOIN categorias c on p.categoria_id = c.id
+        $sql = "SELECT p.id, p.nome, p.categoria_id, c.nome as categoria_nome FROM prato p
+                    JOIN categoria c on p.categoria_id = c.id
                     WHERE p.id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
@@ -36,7 +31,7 @@ class PratoModel extends BancoDeDados
 
     function adicionar(string $nome, int $categoria_id): bool
     {
-        $sql = "INSERT INTO pratos (nome, categoria_id) VALUES (:nome, :categoria_id)";
+        $sql = "INSERT INTO prato (nome, categoria_id) VALUES (:nome, :categoria_id)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':categoria_id', $categoria_id);
@@ -47,7 +42,7 @@ class PratoModel extends BancoDeDados
 
     function deletar(int $id): bool
     {
-        $sql = "DELETE FROM pratos WHERE id = :id";
+        $sql = "DELETE FROM prato WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -57,7 +52,7 @@ class PratoModel extends BancoDeDados
 
     function editar(int $id, string $nome, int $categoria_id): bool
     {
-        $sql = "UPDATE pratos SET nome = :nome, categoria_id = :categoria_id WHERE id = :id";
+        $sql = "UPDATE prato SET nome = :nome, categoria_id = :categoria_id WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':nome', $nome);

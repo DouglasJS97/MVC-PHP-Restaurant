@@ -6,11 +6,6 @@ use PDO;
 
 class UserModel extends BancoDeDados
 {
-    public function __construct(private readonly ?PDO $conn = null)
-    {
-        $this->conn = $this->getConnection();
-    }
-
     function listarTodos(): array
     {
         $sql = "SELECT id, nome FROM user order by nome";

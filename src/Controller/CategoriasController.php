@@ -6,13 +6,11 @@ use App\Model\CategoriaModel;
 
 class CategoriasController
 {
-
     //objeto modelo
     private $modeloCategorias;
 
     //contrutor
     public function __construct(){
-        include_once BASE_PATH . 'modelo/modeloCategorias.php';
         $this->modeloCategorias = new CategoriaModel();
     }
 
@@ -26,18 +24,18 @@ class CategoriasController
                 $mensagem = $adicionou;
             }
         }
-        include_once BASE_PATH . 'visao/categorias/novo.php';
+        include_once BASE_PATH . '/src/View/categorias/novo.php';
     }
 
     public function listar(){
         $categorias = $this->modeloCategorias->listarTodos();
-        include_once BASE_PATH . 'visao/categorias/listar.php';
+        include_once BASE_PATH . '/src/View/categorias/listar.php';
     }
 
     public function exibir(){
         $categoria = $this->modeloCategorias->buscar($_GET['id']);
         if(is_array($categoria)){
-            include_once BASE_PATH . 'visao/categorias/exibir.php';
+            include_once BASE_PATH . '/src/View/categorias/exibir.php';
         }else{
             exit($categoria);
         }
@@ -56,7 +54,7 @@ class CategoriasController
         }
 
         $categoria = $this->modeloCategorias->buscar($_GET['id']);
-        include_once BASE_PATH . 'visao/categorias/editar.php';
+        include_once BASE_PATH . '/src/View/categorias/editar.php';
     }
 
     public function deletar(){
@@ -69,7 +67,7 @@ class CategoriasController
 
         //lista as categorias
         $categorias = $this->modeloCategorias->listarTodos();
-        include_once BASE_PATH . 'visao/categorias/listar.php';
+        include_once BASE_PATH . '/src/View/categorias/listar.php';
     }
 
 }

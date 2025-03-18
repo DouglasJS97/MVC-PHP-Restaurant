@@ -25,18 +25,18 @@ class UserController
                 $mensagem = $adicionou;
             }
         }
-        include_once BASE_PATH . 'visao/usuarios/novo.php';
+        include_once BASE_PATH . '/src/View/usuarios/novo.php';
     }
 
     public function listar(){
         $usuarios = $this->modeloUsuarios->listarTodos();
-        include_once BASE_PATH . 'visao/usuarios/listar.php';
+        include_once BASE_PATH . '/src/View/usuarios/listar.php';
     }
 
     public function exibir(){
         $usuario = $this->modeloUsuarios->buscar($_GET['id']);
         if(is_array($usuario)){
-            include_once BASE_PATH . 'visao/usuarios/exibir.php';
+            include_once BASE_PATH . '/src/View/usuarios/exibir.php';
         }else{
             exit($usuario);
         }
@@ -55,7 +55,7 @@ class UserController
         }
 
         $usuario = $this->modeloUsuarios->buscar($_GET['id']);
-        include_once BASE_PATH . 'visao/usuarios/editar.php';
+        include_once BASE_PATH . '/src/View/usuarios/editar.php';
     }
 
     public function deletar(){
@@ -68,6 +68,6 @@ class UserController
 
         //lista os usuarios
         $usuarios = $this->modeloUsuarios->listarTodos();
-        include_once BASE_PATH . 'visao/usuarios/listar.php';
+        include_once BASE_PATH . '/src/View/usuarios/listar.php';
     }
 }

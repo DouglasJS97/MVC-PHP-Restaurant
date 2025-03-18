@@ -25,23 +25,21 @@ class PratosController
                 $mensagem = $adicionou;
             }
         }
-        //buscar as categorias
-        include_once BASE_PATH . 'modelo/modeloCategorias.php';
         $modeloCategorias = new CategoriaModel();
         $categorias = $modeloCategorias->listarTodos();
 
-        include_once BASE_PATH . 'visao/pratos/novo.php';
+        include_once BASE_PATH . '/src/View/pratos/novo.php';
     }
 
     public function listar(){
         $pratos = $this->modeloPratos->listarTodos();
-        include_once BASE_PATH . 'visao/pratos/listar.php';
+        include_once BASE_PATH . '/src/View/pratos/listar.php';
     }
 
     public function exibir(){
         $prato = $this->modeloPratos->buscar($_GET['id']);
         if(is_array($prato)){
-            include_once BASE_PATH . 'visao/pratos/exibir.php';
+            include_once BASE_PATH . '/src/View/pratos/exibir.php';
         }else{
             exit($prato);
         }
@@ -65,7 +63,7 @@ class PratosController
         $categorias = $modeloCategorias->listarTodos();
 
         $prato = $this->modeloPratos->buscar($_GET['id']);
-        include_once BASE_PATH . 'visao/pratos/editar.php';
+        include_once BASE_PATH . '/src/View/pratos/editar.php';
     }
 
     public function deletar(){
@@ -78,7 +76,7 @@ class PratosController
 
         //lista os pratos
         $pratos = $this->modeloPratos->listarTodos();
-        include_once BASE_PATH . 'visao/pratos/listar.php';
+        include_once BASE_PATH . '/src/View/pratos/listar.php';
     }
 
 }
