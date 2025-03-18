@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\ModeloCategorias;
+use App\Model\CategoriaModel;
 
 class CategoriasController
 {
@@ -13,7 +13,7 @@ class CategoriasController
     //contrutor
     public function __construct(){
         include_once BASE_PATH . 'modelo/modeloCategorias.php';
-        $this->modeloCategorias = new ModeloCategorias();
+        $this->modeloCategorias = new CategoriaModel();
     }
 
     public function novo(){

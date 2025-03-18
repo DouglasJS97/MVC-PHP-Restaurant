@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Model\ModeloPratos;
+use App\Model\CategoriaModel;
+use App\Model\PratoModel;
 
 class PratosController
 {
@@ -11,7 +12,7 @@ class PratosController
 
     //contrutor
     public function __construct(){
-        $this->modeloPratos = new ModeloPratos();
+        $this->modeloPratos = new PratoModel();
     }
 
     public function novo(){
@@ -26,7 +27,7 @@ class PratosController
         }
         //buscar as categorias
         include_once BASE_PATH . 'modelo/modeloCategorias.php';
-        $modeloCategorias = new ModeloCategorias();
+        $modeloCategorias = new CategoriaModel();
         $categorias = $modeloCategorias->listarTodos();
 
         include_once BASE_PATH . 'visao/pratos/novo.php';
@@ -60,7 +61,7 @@ class PratosController
 
         //buscar as categorias
         include_once BASE_PATH . 'modelo/modeloCategorias.php';
-        $modeloCategorias = new ModeloCategorias();
+        $modeloCategorias = new CategoriaModel();
         $categorias = $modeloCategorias->listarTodos();
 
         $prato = $this->modeloPratos->buscar($_GET['id']);

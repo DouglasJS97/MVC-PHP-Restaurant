@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\AuthModel;
 use App\Model\ModeloAuth;
 
 class AuthController
@@ -11,7 +12,7 @@ class AuthController
 
     //contrutor
     public function __construct(){
-        $this->modeloAuth = new ModeloAuth();
+        $this->modeloAuth = new AuthModel();
         session_start();
     }
 
