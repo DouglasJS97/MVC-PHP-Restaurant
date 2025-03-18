@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ModeloUsuarios;
+use App\Model\UserModel;
 
 class UserController
 {
@@ -11,7 +12,7 @@ class UserController
 
     //contrutor
     public function __construct(){
-        $this->modeloUsuarios = new ModeloUsuarios();
+        $this->modeloUsuarios = new UserModel();
     }
 
     public function novo(){
@@ -69,5 +70,4 @@ class UserController
         $usuarios = $this->modeloUsuarios->listarTodos();
         include_once BASE_PATH . 'visao/usuarios/listar.php';
     }
-
 }

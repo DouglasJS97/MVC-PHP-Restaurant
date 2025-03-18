@@ -23,4 +23,10 @@ class BancoDeDados
         throw new Exception("Erro ao conectar ao banco de dados: " . $e->getMessage());
        }
     }
+
+    /** Método responsável por retornar a conexão com o banco de dados MySQL. */
+    public function getConnection(): PDO
+    {
+        return $this->conn;
+    }
 }
