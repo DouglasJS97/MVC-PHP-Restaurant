@@ -6,7 +6,6 @@ use App\Model\ModeloAuth;
 
 class AuthController
 {
-
     //objeto modelo
     private $modeloAuth;
 
